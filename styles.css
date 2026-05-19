@@ -1,0 +1,473 @@
+:root {
+  /* ===============================
+     BASE COLORS
+     =============================== */
+
+  --bg-main: rgb(46, 52, 64);
+  --bg-alt: rgb(59, 66, 82);
+  --bg-hover: rgb(76, 86, 106);
+
+  --fg-main: rgb(236, 239, 244);
+  --fg-soft: rgb(216, 222, 233);
+
+  --red: rgb(191, 97, 106);
+  --blue: rgb(94, 129, 172);
+
+  /* ===============================
+     DERIVED COLORS
+     =============================== */
+
+  --fg-muted: rgba(216, 222, 233, 0.55);
+
+  --bg-glass: rgba(46, 52, 64, 0.65);
+  --bg-glass-hover: rgba(236, 239, 244, 0.12);
+
+  --border: #b7c2e9;
+}
+
+/* ===============================
+   GLOBAL
+   =============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Fira Code";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  color: var(--fg-main);
+}
+
+/* ===============================
+   BAR
+   =============================== */
+
+.yasb-bar {
+  background-color: var(--bg-main);
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding-right: 4px;
+}
+
+/* ===============================
+   BASE WIDGETS
+   =============================== */
+
+.widget {
+  display: flex;
+  align-items: center;
+  margin: 0 2px;
+}
+
+.widget .label {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.icon {
+  margin-right: 4px;
+  line-height: 1;
+}
+
+/* ===============================
+   CONTEXT MENU
+   =============================== */
+
+.context-menu,
+.context-menu .menu-checkbox {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  padding: 10px 0;
+
+  font-size: 12px;
+  color: var(--fg-soft);
+}
+
+.context-menu::right-arrow {
+  width: 8px;
+  height: 8px;
+  padding-right: 24px;
+}
+
+.context-menu::item,
+.context-menu .menu-checkbox {
+  min-width: 100px;
+
+  margin: 2px 6px;
+  padding: 6px 12px;
+
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.context-menu::item:selected,
+.context-menu .menu-checkbox:hover {
+  background-color: var(--bg-main);
+  border-radius: 8px;
+
+  color: var(--fg-main);
+  font-size: 12px;
+}
+
+.context-menu::separator {
+  height: 0;
+  background-color: var(--bg-main);
+}
+
+.context-menu::item:disabled {
+  background-color: transparent;
+
+  color: var(--fg-soft);
+  font-size: 12px;
+}
+
+.context-menu .submenu::item:disabled {
+  margin: 0;
+  padding-left: 16px;
+
+  font-size: 12px;
+}
+
+.context-menu .menu-checkbox .checkbox {
+  margin: 0;
+  padding: 8px 16px;
+
+  border: none;
+
+  color: var(--fg-soft);
+  font-size: 12px;
+}
+
+.context-menu .menu-checkbox .checkbox:focus {
+  outline: none;
+}
+
+.context-menu .menu-checkbox .checkbox:unchecked {
+  color: var(--fg-soft);
+}
+
+.context-menu .menu-checkbox .checkbox::indicator {
+  width: 12px;
+  height: 12px;
+
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.context-menu .menu-checkbox .checkbox::indicator:unchecked,
+.context-menu .menu-checkbox .checkbox::indicator:checked {
+  width: 4px;
+  height: 4px;
+  border-radius: 5px;
+}
+
+.context-menu .menu-checkbox .checkbox::indicator:unchecked {
+  background: var(--bg-hover);
+}
+
+.context-menu .menu-checkbox .checkbox::indicator:checked {
+  background: var(--fg-soft);
+}
+
+/* ===============================
+   GLAZEWM
+   =============================== */
+
+.glazewm-workspaces .ws-btn {
+  margin: 0 2px;
+  padding: 0 4px;
+
+  border: none;
+
+  font-size: 14px;
+}
+
+.glazewm-workspaces .ws-btn.active_populated,
+.glazewm-workspaces .ws-btn.active_empty,
+.glazewm-workspaces .ws-btn.populated,
+.glazewm-workspaces .ws-btn.empty {
+  background-color: transparent;
+  color: var(--fg-soft);
+}
+
+.glazewm-tiling-direction {
+  background-color: transparent;
+}
+
+.glazewm-tiling-direction .btn {
+  width: 14px;
+
+  padding: 0 4px;
+
+  background-color: transparent;
+  border: none;
+
+  color: var(--fg-main);
+  font-size: 18px;
+}
+
+/* ===============================
+   MEDIA MENU
+   =============================== */
+
+.media-menu {
+  min-width: 440px;
+  max-width: 440px;
+
+  background-color: var(--bg-main);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+}
+
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+  margin-left: 10px;
+  font-family: "Fira Code";
+}
+
+.media-menu .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.media-menu .artist {
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+
+.media-menu .source {
+  margin-top: 10px;
+  padding: 2px 6px;
+
+  background-color: var(--bg-alt);
+  border-radius: 4px;
+
+  color: var(--fg-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.media-menu .btn {
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+
+  margin: 10px 2px 0;
+
+  border-radius: 20px;
+
+  color: var(--fg-soft);
+  font-family: "Segoe Fluent Icons";
+  font-size: 14px;
+
+  transition: background-color 0.15s ease;
+}
+
+.media-menu .btn.prev {
+  margin-left: 10px;
+}
+
+.media-menu .btn:hover {
+  background-color: var(--bg-glass-hover);
+  color: var(--fg-main);
+}
+
+.media-menu .btn.play {
+  background-color: var(--bg-hover);
+  font-size: 20px;
+}
+
+.media-menu .playback-time {
+  min-width: 100px;
+  margin-top: 20px;
+
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+
+/* ===============================
+   CLOCK / CALENDAR
+   =============================== */
+
+.clock-popup.calendar {
+  margin-top: 2px;
+  margin-right: 7px;
+
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.clock-popup.calendar .calendar-table {
+  background-color: transparent;
+}
+
+.calendar .calendar-table::item {
+  background-color: var(--bg-main);
+  border: none;
+  outline: none;
+
+  color: var(--fg-soft);
+}
+
+.calendar .day-label {
+  margin-top: 20px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+  min-width: 180px;
+  max-width: 180px;
+
+  color: var(--fg-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calendar .month-label {
+  font-weight: normal;
+}
+
+.calendar .date-label {
+  color: var(--fg-soft);
+  font-size: 88px;
+  font-weight: 900;
+}
+
+/* ===============================
+   POWER MENU
+   =============================== */
+
+.power-menu-widget .label {
+  padding-right: 4px;
+
+  font-family: "JetBrainsMono NF";
+  font-size: 14px;
+}
+
+.uptime {
+  margin-bottom: 10px;
+
+  color: var(--fg-soft);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.power-menu-popup {
+  background-color: var(--bg-main);
+  border-radius: 6px;
+}
+
+.power-menu-popup .button {
+  width: 240px;
+  height: 120px;
+
+  margin: 8px;
+
+  background-color: var(--bg-alt);
+  border-radius: 8px;
+
+  color: var(--fg-soft);
+}
+
+.power-menu-popup .button.hover {
+  background-color: var(--bg-hover);
+}
+
+.power-menu-popup .button .label {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.power-menu-popup .button .icon {
+  padding-top: 12px;
+  padding-right: 8px;
+
+  font-size: 48px;
+}
+
+.power-menu-popup .button.cancel .icon,
+.power-menu-popup .button.cancel .label {
+  color: var(--blue);
+}
+
+.power-menu-popup .button.shutdown .icon,
+.power-menu-popup .button.shutdown .label {
+  color: var(--red);
+  font-family: "JetBrainsMono NF";
+}
+
+/* ===============================
+   SYSTRAY
+   =============================== */
+
+.systray,
+.systray .unpinned-container,
+.systray .pinned-container {
+  background: transparent;
+}
+
+.systray {
+  margin: 0;
+  border: none;
+}
+
+.systray .button {
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.systray .button:hover,
+.systray-popup .button.drag-over {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.systray .button.drag-over {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.systray .pinned-container.drop-target,
+.systray .pinned-container.pinned-container.drop-target,
+.systray .unpinned-visibility-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.systray .unpinned-visibility-btn {
+  width: 16px;
+  height: 20px;
+
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* ===============================
+   WALLPAPERS WIDGET
+   =============================== */
+
+.wallpapers-widget {
+  padding: 0 2px;
+}
+
+.wallpapers-gallery-window {
+  background-color: var(--bg-glass);
+}
+
+.wallpapers-gallery-image {
+  border: 4px solid transparent;
+  border-radius: 9px;
+}
+
+.wallpapers-gallery-image.focused {
+  border: 3px solid var(--border);
+}

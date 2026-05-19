@@ -1,0 +1,188 @@
+watch_stylesheet: true
+watch_config: true
+
+bars:
+  status-bar:
+    enabled: true
+    screens: ["*"]
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: true
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: true
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 28
+    padding:
+      top: 4
+      left: 7
+      bottom: 0
+      right: 7
+    widgets:
+      left: ["glazewm_tiling_direction", "glazewm_workspaces"]
+      center: ["cava", "media", "cava"]
+      right: ["systray", "clock", "wallpapers", "wifi", "battery", "power_menu"]
+widgets:
+  glazewm_tiling_direction:
+    type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
+    options:
+      horizontal_label: "\udb81\udce1"
+      vertical_label: "\udb81\udce2"
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: "GlazeWM"
+      hide_empty_workspaces: true
+      hide_if_offline: false
+      app_icons:
+        enabled_populated: false
+        enabled_active: false
+        size: 16
+        max_icons: 0
+        hide_label: false
+        hide_duplicates: false
+        hide_floating: false
+      animation: false
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      bar_height: 12
+      min_bar_height: 0
+      gradient: 1
+      foreground: "#89b4fa"
+      # gradient_color_1: "#bf616a"
+      # gradient_color_2: "#d08770"
+      # gradient_color_3: "#ebcb8b"
+      gradient_color_1: "#b7c2e9"
+      gradient_color_2: "#b7c2e9"
+      gradient_color_3: "#b7c2e9"
+      bars_number: 8
+      bar_spacing: 2
+      bar_width: 4
+      bar_type: "bars"
+      framerate: 60
+      hide_empty: true
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}{s}{artist}"
+      label_alt: "{title}"
+      separator: " ~ "
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+      max_field_size:
+        label: 48
+        label_alt: 40
+      show_thumbnail: false
+      thumbnail_alpha: 80
+      controls_only: false
+      controls_left: false
+      controls_hide: true
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      scrolling_label:
+        enabled: true
+        update_interval_ms: 30
+        style: "left"
+        separator: "  •  "
+        label_padding: 0
+        always_scroll: false
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        alignment: "center"
+        direction: "down"
+        offset_top: 7
+        thumbnail_corner_radius: 10
+        thumbnail_size: 120
+        max_title_size: 32
+        max_artist_size: 26
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%H:%M %a, %d %b}"
+      label_alt: "{%H:%M %A, %d %b %Y}"
+      tooltip: false
+      timezones: []
+      calendar:
+        alignment: "center"
+        direction: "down"
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span>{percent}%"
+      label_alt: "<span>{icon}</span>{percent}%"
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\uf011"
+      uptime: True
+      blur: False
+      blur_background: True
+      animation_duration: 300 # Milisecond
+      button_row: 3
+      buttons:
+        lock: ["\uea75", "Lock"]
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        cancel: ["\udb81\udf3a", "Cancel"]
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\u2bc7"
+      label_expanded: "\u2bc7"
+      label_position: "right" # Can be "left" or "right"
+      icon_size: 16 # Can be any integer between 8 and 64
+      pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
+      show_unpinned: true
+      show_unpinned_button: true
+      show_battery: false
+      show_volume: false
+      show_network: false
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "\udb82\udd28 {wifi_strength}%"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\udb83\ude09</span>"
+      image_path: "D:\\CozyPixels Nord\\Picked"
+      gallery:
+        enabled: true
+        blur: true
+        image_width: 240
+        image_per_page: 4
+        orientation: "portrait"
+        show_buttons: false
+        image_spacing: 18
+        lazy_load: true
+        lazy_load_fadein: 400
+        image_corner_radius: 8
