@@ -1,8 +1,8 @@
 ![YASB Nord Bar](screenshots/2.bar.png)
 
-# YASB (Nord Theme)
+# YASB Nord Minimal
 
-A clean [Nord](https://www.nordtheme.com/) themed configuration for [YASB](https://github.com/amnweb/yasb) (Yet Another Status Bar) for Windows.
+A clean, minimal [Nord](https://www.nordtheme.com/) themed configuration for [YASB](https://github.com/amnweb/yasb) (Yet Another Status Bar) for Windows.
 
 ## Screenshots
 
